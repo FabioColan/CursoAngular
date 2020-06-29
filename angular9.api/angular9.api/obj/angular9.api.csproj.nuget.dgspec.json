@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Info\\Apps\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj": {}
+    "C:\\Users\\FabioColan\\FabioApp\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj": {}
   },
   "projects": {
-    "D:\\Info\\Apps\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj": {
+    "C:\\Users\\FabioColan\\FabioApp\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Info\\Apps\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj",
+        "projectUniqueName": "C:\\Users\\FabioColan\\FabioApp\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj",
         "projectName": "angular9.api",
-        "projectPath": "D:\\Info\\Apps\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj",
-        "packagesPath": "C:\\Users\\fabio.colan\\.nuget\\packages\\",
-        "outputPath": "D:\\Info\\Apps\\CursoAngular\\angular9.api\\angular9.api\\obj\\",
+        "projectPath": "C:\\Users\\FabioColan\\FabioApp\\CursoAngular\\angular9.api\\angular9.api\\angular9.api.csproj",
+        "packagesPath": "C:\\Users\\FabioColan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\FabioColan\\FabioApp\\CursoAngular\\angular9.api\\angular9.api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fabio.colan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\FabioColan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
