@@ -1,5 +1,5 @@
-export User(){
-  nombre  ,
-  apellido ,
-  email,
+export class User {
+  nombre: string;
+  apellido: string;
+  email: string;
 }
