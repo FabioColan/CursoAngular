@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\angular9.api"
+    "\\angular9.api",
+    "\\angular9.api\\Controllers"
   ],
+  "SelectedNode": "\\angular9.api\\angular9.api.csproj",
   "PreviewInSolutionExplorer": false
 }
