@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/UserModel';
+import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +11,28 @@ import { User } from 'src/app/models/UserModel';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userServices: UserService) { 
-    console.log(this.userServices.getUserName())
+  miFormulario: FormGroup;
 
-    const user = new User();
-    user.nombre = 'Junior';
-    user.apellido = 'Wong';
-    user.email = 'fcolanw@gmail.com';
-    
-    this.userServices.addUser(user)
+  constructor(private userServices: UserService, private fb:FormBuilder) { 
+
   }
 
   ngOnInit(): void {
+    this.miFormulario = this.fb.group({
+      nombre: [''],
+      apellido: [''],
+      email: [''],
+    });
+  }
+
+  onSubmit(formValue: any) {
+    debugger;
+    const user = new User();
+    user.nombre = formValue.nombre;
+    user.apellido = formValue.apellido;
+    user.email = formValue.email;
+
+    this.userServices.addUser(user);
   }
 
 }
