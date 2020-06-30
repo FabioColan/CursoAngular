@@ -22,7 +22,8 @@
         <a class="btn btn-link" (click)="addTelefonos()">Add</a>
         <div formArrayName="telefonos">
             <div *ngFor="let item of getTelefonos.controls; let pointIndex=index" [formGroupName]="pointIndex">
-                <input type="tel" formControlName="telefonos" class="form-control">
+                <label for="telefono">Telefono {{ pointIndex+1 }}</label>
+                <input type="text" formControlName="telefono" class="form-control">
                 <a class="btn btn-link" (click)="removeTelefono(pointIndex)">Remove</a>
             </div>
         </div>

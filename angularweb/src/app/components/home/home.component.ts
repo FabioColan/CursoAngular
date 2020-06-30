@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
     user.apellido = formValue.apellido;
     user.email = formValue.email;
     user.date = new Date(formValue.date.year, formValue.date.month, formValue.date.day)
+    user.telefonos = formValue.telefonos;
 
     this.userService.addUser(user);
 
