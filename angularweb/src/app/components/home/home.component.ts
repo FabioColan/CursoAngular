@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/UserModel';
 import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { from } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +11,10 @@ import { from } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   miFormulario: FormGroup;
+  flag = false;
+  users : any[] = [];
 
-  constructor(private userServices: UserService, private fb:FormBuilder) { 
+  constructor(private userService: UserService, private fb:FormBuilder) { 
 
   }
 
@@ -26,13 +27,20 @@ export class HomeComponent implements OnInit {
   }
 
   onSubmit(formValue: any) {
-    debugger;
+    // debugger;
     const user = new User();
     user.nombre = formValue.nombre;
     user.apellido = formValue.apellido;
     user.email = formValue.email;
 
-    this.userServices.addUser(user);
+    this.userService.addUser(user);
+
+    this.flag = !this.flag;
+
+    this.userService.getUsers()
+      .subscribe((resp:any) => {
+        this.users = resp;
+      });
   }
 
 }

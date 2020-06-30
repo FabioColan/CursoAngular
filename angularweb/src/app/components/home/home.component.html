@@ -14,3 +14,13 @@
     Enviar
   </button>
 </form>
+
+<div *ngIf="flag">
+    <h1>FLAG ES TRUE</h1>
+</div>
+
+<div>
+    <ul>
+        <li *ngFor="let user of users; let indexP = index">{{ user.nombre }}</li>
+    </ul>
+</div>

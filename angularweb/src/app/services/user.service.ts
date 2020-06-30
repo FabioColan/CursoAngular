@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { User } from '../models/UserModel';
 
 @Injectable({
@@ -26,6 +26,13 @@ export class UserService {
     this.http.post('http://localhost:49185/api/User/adduser', data)
       .subscribe(resp => {
         console.log(resp);
-      })
+      });
+  }
+
+  getUsers() {
+    this.http.get('http://localhost:49185/api/User/users')
+      .subscribe(resp => {
+        console.log(resp);
+      });
   }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using angular9.api.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace angular9.api.Controllers
@@ -24,9 +25,23 @@ namespace angular9.api.Controllers
 
         // GET api/values/5
         [HttpPost("adduser")]
-        public ActionResult Adduser([FromBody] Models.UserViewModel user)
+        public ActionResult Adduser([FromBody] UserViewModel user)
         {
             return Ok();
+        }
+
+        // GET api/values/5
+        [HttpGet("users")]
+        public ActionResult GetUsers()
+        {
+            List<UserViewModel> users = new List<UserViewModel>();
+
+            users.Add(new UserViewModel { Nombre = "Javier", Apellido = "Jota", Email = "javier@gmail.com", });
+            users.Add(new UserViewModel { Nombre = "Juan", Apellido = "Khan", Email = "juan@gmail.com", });
+            users.Add(new UserViewModel { Nombre = "Dalia", Apellido = "Urbina", Email = "dalia@gmail.com", });
+            users.Add(new UserViewModel { Nombre = "Isabella", Apellido = "Colan", Email = "isabella@gmail.com", });
+            users.Add(new UserViewModel { Nombre = "Sergio", Apellido = "Zapata", Email = "sergio@gmail.com", });
+            return Ok(users);
         }
 
     }
