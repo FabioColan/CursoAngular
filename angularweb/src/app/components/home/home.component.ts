@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
       nombre: [''],
       apellido: [''],
       email: [''],
-      date: ['']
+      date: [''],
+      telefonos: this.fb.array([this.fb.group({telefono: ['']})])
     });
   }
 
@@ -43,6 +44,20 @@ export class HomeComponent implements OnInit {
       .subscribe((resp:any) => {
         this.users = resp;
       });
+  }
+
+  get getTelefonos() {
+    return this.miFormulario.get('telefonos') as FormArray;
+  }
+
+  addTelefonos(){
+    const control = <FormArray>this.miFormulario.controls['telefonos'];
+    control.push(this.fb.group({telefono: []}))
+  }
+
+  removeTelefono(index: number){
+    const control = <FormArray>this.miFormulario.controls['telefonos'];
+    control.removeAt(index);
   }
 
 }

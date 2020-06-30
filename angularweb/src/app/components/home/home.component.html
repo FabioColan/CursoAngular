@@ -18,9 +18,17 @@
     <div class="form-group">
         <ngbd-datepicker-popup [parentForm]="miFormulario" [formControlName]="'date'" [formLabel]="'Fecha:'"></ngbd-datepicker-popup>
     </div>
-    <button type="submit" class="btn btn-primary">
-    Enviar
-  </button>
+    <div class="form-group">
+        <a class="btn btn-link" (click)="addTelefonos()">Add</a>
+        <div formArrayName="telefonos">
+            <div *ngFor="let item of getTelefonos.controls; let pointIndex=index" [formGroupName]="pointIndex">
+                <input type="tel" formControlName="telefonos" class="form-control">
+                <a class="btn btn-link" (click)="removeTelefono(pointIndex)">Remove</a>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
 </form>
 
 <div *ngIf="flag">

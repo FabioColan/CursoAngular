@@ -3,4 +3,5 @@ export class User {
   apellido: string;
   email: string;
   date: Date;
+  telefonos: string[];
 }
