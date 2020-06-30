@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from './components/text/text.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdDatepickerPopup } from './components/datepicker-popup/datepicker-popup.component';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,16 @@ import { TextComponent } from './components/text/text.component';
     BlogComponent,
     ShopComponent,
     HeaderComponent,
-    TextComponent
+    TextComponent,
+    NgbdDatepickerPopup
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,21 +18,13 @@ export class UserService {
   }
 
   addUser(user: User) {
-    const data = new User();
-    data.nombre = user.nombre;
-    data.apellido = user.apellido;
-    data.email = user.email;
-    
-    this.http.post('http://localhost:49185/api/User/adduser', data)
+    this.http.post('http://localhost:49185/api/User/adduser', user)
       .subscribe(resp => {
         console.log(resp);
       });
   }
 
   getUsers() {
-    this.http.get('http://localhost:49185/api/User/users')
-      .subscribe(resp => {
-        console.log(resp);
-      });
+    return this.http.get('http://localhost:49185/api/User/users');
   }
 }

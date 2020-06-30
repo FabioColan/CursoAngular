@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       nombre: [''],
       apellido: [''],
       email: [''],
+      date: ['']
     });
   }
 
@@ -32,15 +33,16 @@ export class HomeComponent implements OnInit {
     user.nombre = formValue.nombre;
     user.apellido = formValue.apellido;
     user.email = formValue.email;
+    user.date = new Date(formValue.date.year, formValue.date.month, formValue.date.day)
 
     this.userService.addUser(user);
 
     this.flag = !this.flag;
 
-    // this.userService.getUsers()
-      // .subscribe((resp:any) => {
-      //   this.users = resp;
-      // });
+    this.userService.getUsers()
+      .subscribe((resp:any) => {
+        this.users = resp;
+      });
   }
 
 }

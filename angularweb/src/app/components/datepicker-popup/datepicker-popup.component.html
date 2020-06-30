@@ -1,0 +1,7 @@
+<div class="input-group" [formGroup]="parentForm">
+  <label for="{{ formControlName }}">{{ formLabel }}</label>
+  <input class="form-control" formControlName="{{ formControlName }}" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+  </div>
+</div>
