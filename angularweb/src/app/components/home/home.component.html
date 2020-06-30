@@ -10,6 +10,9 @@
         <label for="email">Email</label><input type="email" formControlName="email" id="email" aria-describedby="emailHelp" placeholder="Ingrese su email" class="form-control" />
         <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más</small>
     </div>
+    <div class="form-group">
+        <app-text [nombre]="'Isabella'" [edad]="3" [email]="'isa.bella@colan.com'"></app-text>
+    </div>
     <button type="submit" class="btn btn-primary">
     Enviar
   </button>

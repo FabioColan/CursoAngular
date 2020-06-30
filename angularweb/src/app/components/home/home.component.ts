@@ -37,10 +37,10 @@ export class HomeComponent implements OnInit {
 
     this.flag = !this.flag;
 
-    this.userService.getUsers()
-      .subscribe((resp:any) => {
-        this.users = resp;
-      });
+    // this.userService.getUsers()
+      // .subscribe((resp:any) => {
+      //   this.users = resp;
+      // });
   }
 
 }
