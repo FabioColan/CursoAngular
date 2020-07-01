@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/UserModel';
 import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   flag = false;
   users : any[] = [];
 
-  constructor(private userService: UserService, private fb:FormBuilder) { 
+  constructor(private userService: UserService, private fb:FormBuilder, private toastr: ToastrService) { 
 
   }
 
@@ -28,8 +29,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  showSuccess() {
+    this.toastr.success('Hello world!', 'Toastr fun!');
+  }
+
   onSubmit(formValue: any) {
     // debugger;
+    this.showSuccess();
     const user = new User();
     user.nombre = formValue.nombre;
     user.apellido = formValue.apellido;
