@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { User } from '../models/UserModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  _apiUrl;
+  
+  constructor(private http: HttpClient) { 
+    this._apiUrl = environment.apiendpoint;
+  }
 
   getUserName() {
-    this.http.get('http://localhost:49185/api/User/1212')
+    this.http.get(this._apiUrl + '/api/User/1212')
       .subscribe(resp => {
         console.log(resp);
       });
@@ -18,13 +23,13 @@ export class UserService {
   }
 
   addUser(user: User) {
-    this.http.post('http://localhost:49185/api/User/adduser', user)
+    this.http.post(this._apiUrl + '/api/User/adduser', user)
       .subscribe(resp => {
         console.log(resp);
       });
   }
 
   getUsers() {
-    return this.http.get('http://localhost:49185/api/User/users');
+    return this.http.get(this._apiUrl + '/api/User/users');
   }
 }
