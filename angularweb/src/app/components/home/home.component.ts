@@ -3,6 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/UserModel';
 import { FormControl, FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { LoadingScreenService } from 'src/app/services/loading-screen.service';
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,17 @@ export class HomeComponent implements OnInit {
   flag = false;
   users : any[] = [];
 
-  constructor(private userService: UserService, private fb:FormBuilder, private toastr: ToastrService) { 
+  constructor(
+    private userService: UserService, 
+    private fb:FormBuilder, 
+    private toastr: ToastrService, 
+    private screenService: LoadingScreenService
+    ) { 
 
   }
 
   ngOnInit(): void {
+    
     this.miFormulario = this.fb.group({
       nombre: [''],
       apellido: [''],
@@ -35,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   onSubmit(formValue: any) {
     // debugger;
+    this.screenService.startLoading();
     this.showSuccess();
     const user = new User();
     user.nombre = formValue.nombre;
@@ -50,6 +58,7 @@ export class HomeComponent implements OnInit {
     this.userService.getUsers()
       .subscribe((resp:any) => {
         this.users = resp;
+        this.screenService.stopLoading();
       });
   }
 

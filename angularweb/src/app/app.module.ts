@@ -7,7 +7,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextComponent } from './components/text/text.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,6 +15,8 @@ import { NgbdDatepickerPopup } from './components/datepicker-popup/datepicker-po
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
+import { LoadingScreenInterceptorService } from './services/loading-screen-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ToastrModule } from 'ngx-toastr';
     ShopComponent,
     HeaderComponent,
     TextComponent,
-    NgbdDatepickerPopup
+    NgbdDatepickerPopup,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,11 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoadingScreenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
