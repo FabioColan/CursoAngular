@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 
   _apiUrl;
-  
-  constructor(private http: HttpClient) { 
+
+  constructor(private http: HttpClient) {
     this._apiUrl = environment.apiendpoint;
   }
 
@@ -32,4 +32,17 @@ export class UserService {
   getUsers() {
     return this.http.get(this._apiUrl + '/api/User/users');
   }
+
+  postImagen(image: File) {
+    
+    const formData = new FormData()
+    formData.append('image', image);
+
+    this.http.post(this._apiUrl + 'api/User/image', formData)
+      .subscribe(data => {
+        console.log(data)
+        // Sanitized logo returned from backend
+      })
+  }
+
 }

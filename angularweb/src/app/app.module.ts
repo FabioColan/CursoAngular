@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { LoadingScreenComponent } from './components/loading-screen/loading-screen.component';
 import { LoadingScreenInterceptorService } from './services/loading-screen-interceptor.service';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { LoadingScreenInterceptorService } from './services/loading-screen-inter
     HeaderComponent,
     TextComponent,
     NgbdDatepickerPopup,
-    LoadingScreenComponent
+    LoadingScreenComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { LoadingScreenInterceptorService } from './services/loading-screen-inter
     ReactiveFormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxFileDropModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
