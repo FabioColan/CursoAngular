@@ -19,6 +19,7 @@ import { LoadingScreenComponent } from './components/loading-screen/loading-scre
 import { LoadingScreenInterceptorService } from './services/loading-screen-interceptor.service';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { PreguntasComponent } from './components/preguntas/preguntas.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
     TextComponent,
     NgbdDatepickerPopup,
     LoadingScreenComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    PreguntasComponent
   ],
   imports: [
     BrowserModule,

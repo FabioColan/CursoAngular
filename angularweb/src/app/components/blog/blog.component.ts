@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PracticaService } from 'src/app/services/practica.service';
+import { LoadingScreenService } from 'src/app/services/loading-screen.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  practicas : any[] = [];
+
+  constructor(private loading: LoadingScreenService,private practica: PracticaService) { }
 
   ngOnInit(): void {
+    this.loading.startLoading();
+    this.practicas = this.practica.getPractica();
+    console.log(this.practicas);
+    this.loading.stopLoading();
   }
+
+
 
 }
